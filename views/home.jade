@@ -1,0 +1,74 @@
+extends layout
+
+block content
+  .container
+    .header.clearfix
+      nav
+        ul.nav.nav-pills.pull-right
+          li#home.active
+            a(href="#") Home
+          if passwordLogin
+            li#password-login
+              a(href="#") Password Login
+
+          li#logout
+            a(href="#") Logout
+    h3.text-muted App.com
+
+    if passwordLogin
+      div.alert.alert-danger
+        strong Password Login
+        br
+        br
+        | You are requested to perform a one - off password verification of your current
+        strong  #{email}
+        |  email address against your existing
+        strong  #{passwordConnection}
+        |  database account.
+        | You do not need to logout and shall be automatically redirected back to this page once completed.
+        | We thank you for your co-operation.
+
+    div.jumbotron
+      h3 Hello #{user.name.givenName} #{user.name.familyName}!
+      p.lead Your nickname is: #{user.nickname}
+      p.lead Your user id is: #{user.id}
+      img.avatar(src="#{user.picture}")
+
+    div.row.marketing
+      div.col-lg-6
+        h4 Subheading
+        p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+
+        h4 Subheading
+        p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
+
+      div.col-lg-6
+        h4 Subheading
+        p Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.
+
+        h4 Subheading
+        p Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.
+
+    footer.footer
+    p &copy; 2017 Company Inc
+
+    if passwordLogin
+      script.
+        $('#password-login').click(function () {
+          $("#home").removeClass("active");
+          $("#logout").removeClass("active");
+          $("#password-login").addClass("active");
+          window.location = "/portal/password";
+        });
+
+    script.
+      $("#logout").click(function (e) {
+        e.preventDefault();
+        $("#home").removeClass("active");
+        $("#password-login").removeClass("active");
+        $("#logout").addClass("active");
+        window.location = "/logout";
+      });
+
+
+

@@ -1,0 +1,31 @@
+
+
+
+#password-login > a {
+    color: red;
+}
+
+.main_title {
+  text-align: center;
+}
+
+.login_root {
+  text-align: center;
+}
+
+.login_toolbar {
+  display: inline-block;
+}
+
+
+
+
+
+#password-btn {
+  height: 34px;
+  padding-top: 5px;
+  padding-right: 24px;
+  padding-bottom: 18px;
+  padding-left: 24px;
+  font-size: 16px;
+}

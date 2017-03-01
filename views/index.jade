@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  .container
+    div.jumbotron
+      h2(classname='main_title')
+        img(src='https://cdn.auth0.com/styleguide/1.0.0/img/badge.svg')
+      div(classname='login_root')
+        h2 Login
+        buttontoolbar(classname='login_toolbar')
+          button#login(bsstyle='primary') Login
+
+
+  script.
+    $("#login").click(function (e) {
+      e.preventDefault();
+      window.location = "/login";
+    });
+
+
