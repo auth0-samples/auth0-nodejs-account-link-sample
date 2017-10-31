@@ -11,6 +11,8 @@ var Auth0Strategy = require('passport-auth0');
 
 dotenv.load();
 
+// process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
 var routes = require('./routes/index');
 var homeRoute = require('./routes/home');
 var passwordRoute = require('./routes/password');

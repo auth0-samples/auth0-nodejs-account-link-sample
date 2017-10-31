@@ -94,6 +94,9 @@ var hasUserPasswordProfile = function (user, domain, managementToken, connection
 
 var isUserPasswordProfile = function (user) {
   var expectedConnection = process.env.AUTH0_DB_CONNECTION;
+  if (user.identities === undefined) {
+    return true;
+  }
   var primaryIdentity = user.identities[0];
   var connection = primaryIdentity.connection;
   return expectedConnection === connection;
@@ -104,7 +107,7 @@ var linkAccount = function (user, tokens, existingTokens) {
 
   var deferred = Q.defer();
 
-  var primaryAccountUserId = user.id;
+  var primaryAccountUserId = user._json.sub;
   var primaryAccountJwt = tokens.idToken;
   var secondaryAccountJwt = existingTokens.idToken;
 

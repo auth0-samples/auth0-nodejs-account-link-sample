@@ -27,7 +27,7 @@ router.get('/', ensureLoggedIn, function (req, res, next) {
         clientId: process.env.AUTH0_CLIENT_ID,
         domain: process.env.AUTH0_DOMAIN,
         passwordConnection: process.env.AUTH0_DB_CONNECTION,
-        callback: process.env.AUTH0_PASSWORD_CALLBACK_URL,
+        plcallback: process.env.AUTH0_PASSWORD_CALLBACK_URL,
         state: '12345'
       };
       res.render('password', options);
